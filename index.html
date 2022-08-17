@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="" />
 		<link rel="stylesheet" type="text/css" href="./css/main.css" />
-		<title>Rock Paper Scissors</title>
+		<title>Schere, Stein, Papier, Echse, Spock</title>
 	</head>
 	<body>
 		<header>
-			<h1>Rock Paper Scissors</h1>
+			<h1>Schere, Stein, Papier, Echse, Spock</h1>
 		</header>
 		<main>
-			<section id="selectionRounds">
-				<p>How many rounds?</p>
+			<section id="roundsSelection">
+				<p>Wie viele Runden spielen wir?</p>
 				<div>
 					<input type="radio" id="numOfRounds--5" name="numOfRounds" value="5" />
 					<label for="numOfRounds--5">5</label>
@@ -28,37 +28,36 @@
 					<input type="radio" id="numOfRounds--20" name="numOfRounds" value="20" />
 					<label for="numOfRounds--20">20</label>
 				</div>
-				<p id="roundsCounter"></p>
-				<p id="maxRounds"></p>
+				<div>
+					<p id="counter"></p>
+				</div>
 			</section>
 
 			<section>
 				<div>
 					<p>User</p>
-					<div>
-						<p id="userPoints">0</p>
-						<p>:</p>
-						<p id="computerPoints">0</p>
-					</div>
+					<div id="points">0 : 0</div>
 					<p>Computer</p>
 				</div>
 			</section>
 
-			<section>
-				<p id="information">Let's play</p>
+			<section id="winInformation">
+				<p>Los geht's</p>
 			</section>
 
-			<section id="selectionTool">
+			<section id="toolSelection">
 				<div>
-					<input type="button" id="selectionScissors" value="scissors" />
-					<input type="button" id="selectionStone" value="stone" />
-					<input type="button" id="selectionPaper" value="paper" />
+					<input type="button" class="selected-tool" id="selectedScissors" value="Schere" />
+					<input type="button" class="selected-tool" id="selectedStone" value="Stein" />
+					<input type="button" class="selected-tool" id="selectedPaper" value="Papier" />
+					<input type="button" class="selected-tool" id="selectedLizard" value="Echse" />
+					<input type="button" class="selected-tool" id="selectedSpock" value="Spock" />
 				</div>
-				<p>Make Your Move.</p>
+				<p>Du bist am Zug.</p>
 			</section>
 		</main>
 		<footer>
-			<input type="button" id="restart" value="restart" />
+			<input type="button" id="restart" value="Reset" />
 		</footer>
 		<script src="https://kit.fontawesome.com/37df5cc3ca.js" crossorigin="anonymous"></script>
 		<script src="./js/main.js"></script>
