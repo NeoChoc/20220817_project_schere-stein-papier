@@ -6,12 +6,96 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="" />
 		<link rel="stylesheet" type="text/css" href="./css/main.css" />
-		<title>Schere, Stein, Papier</title>
+		<title>Rock Paper Scissors</title>
 	</head>
 	<body>
-		<header></header>
-		<main></main>
-		<footer></footer>
+		<header>
+			<h1>Rock Paper Scissors</h1>
+		</header>
+		<main>
+			<section id="selectionRounds">
+				<p>How many rounds?</p>
+				<div>
+					<input type="radio" id="numOfRounds--5" name="numOfRounds" value="5" />
+					<label for="numOfRounds--5">5</label>
+
+					<input type="radio" id="numOfRounds--10" name="numOfRounds" value="10" />
+					<label for="numOfRounds--10">10</label>
+
+					<input type="radio" id="numOfRounds--15" name="numOfRounds" value="15" />
+					<label for="numOfRounds--15">15</label>
+
+					<input type="radio" id="numOfRounds--20" name="numOfRounds" value="20" />
+					<label for="numOfRounds--20">20</label>
+				</div>
+				<p id="roundsCounter"></p>
+				<p id="maxRounds"></p>
+			</section>
+
+			<section>
+				<div>
+					<p>User</p>
+					<div>
+						<p id="userPoints">0</p>
+						<p>:</p>
+						<p id="computerPoints">0</p>
+					</div>
+					<p>Computer</p>
+				</div>
+			</section>
+
+			<section>
+				<p id="information">Let's play</p>
+			</section>
+
+			<section id="selectionTool">
+				<div>
+					<input type="button" id="selectionScissors" value="scissors" />
+					<input type="button" id="selectionStone" value="stone" />
+					<input type="button" id="selectionPaper" value="paper" />
+				</div>
+				<p>Make Your Move.</p>
+			</section>
+		</main>
+		<footer>
+			<input type="button" id="restart" value="restart" />
+		</footer>
+		<script src="https://kit.fontawesome.com/37df5cc3ca.js" crossorigin="anonymous"></script>
 		<script src="./js/main.js"></script>
 	</body>
 </html>
+
+<!-- 
+<div class="buttonHolder">
+   <a href="#" class="button tick"><i class="fa-solid fa-hand"></i></a>
+   <a href="#" class="button tick"> <i class="fa-solid fa-hand-back-fist"></i></a>
+   <a href="#" class="button cross"><i class="fa-solid fa-hand-scissors"></i></a>
+   <a href="#" class="button heart"><i class="fa-solid fa-hand-lizard"></i></a>
+   <a href="#" class="button flower"><i class="fa-solid fa-hand-spock"></i></a>
+</div>
+<i class="fa-solid fa-hand"></i>
+<i class="fa-solid fa-hand-back-fist"></i>
+<i class="fa-solid fa-hand-scissors"></i>
+<i class="fa-solid fa-hand-lizard"></i>
+<i class="fa-solid fa-hand-spock"></i> -->
+
+<!-- 
+<div class="menu effect-13">
+   <ul>
+      <li>
+         <a href="#"><i class="fa-solid fa-hand"></i></a>
+      </li>
+      <li>
+         <a href="#"><i class="fa-solid fa-hand-back-fist"></i></a>
+      </li>
+      <li>
+         <a href="#"><i class="fa-solid fa-hand-scissors"></i></a>
+      </li>
+      <li>
+         <a href="#"><i class="fa-solid fa-hand-lizard"></i></a>
+      </li>
+      <li>
+         <a href="#"><i class="fa-solid fa-hand-spock"></i></a>
+      </li>
+   </ul>
+</div> -->
