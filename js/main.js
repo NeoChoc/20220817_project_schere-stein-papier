@@ -18,20 +18,22 @@ let winInfo = document.getElementById('winInformation'); // info-text if win/los
 let numOfRounds = document.querySelectorAll('input[name="numOfRounds"]'); // input number of rounds (radio)
 
 // array to fill winInfo
-const sentence = [
-	[('winnterT', '<p>Du hast gewonnen</p>'), ('loserT', '<p>Du hast verloren</p>')],
+const text = [
+	[('winnerT', '<p>Du hast gewonnen!</p>'), ('loserT', '<p>Du hast verloren!</p>')],
 	['<p>Unentschieden</p>'],
-	['<p><span>Schere</span>schneidet Papier</p>'],
+	['<p><span>Schere</span> schneidet Papier</p>'],
 	['<p><span>Papier</span> umhüllt Stein</p>'],
 	['<p><span>Stein</span> zerquetscht Echse</p>'],
 	['<p><span>Echse</span> ergiftet Spock</p>'],
 	['<p><span>Spock</span> zerschlägt Schere</p>'],
-	['<p><span>Schere</span>schneidet Echse</p>'],
+	['<p><span>Schere</span> schneidet Echse</p>'],
 	['<p><span>Echse</span> frisst Papier</p>'],
 	['<p><span>Papier</span> entlässt Spock</p>'],
 	['<p><span>Spock</span> vaporisiert Stein</p>'],
 	['<p><span>Stein</span> schleift Schere</p>'],
 ];
+
+let infoText;
 
 // numOfRounds, userTool, randomNumber, compTool, count, userPoints, compPoints
 let game = [
@@ -71,120 +73,120 @@ const reStart = () => {
 
 // *********************************************************
 const compare = () => {
-	let result = 0;
-
 	switch (true) {
 		// anybody won
 		case game[1][1] == game[3][1]:
-			result = 0;
+			infoText = text[1];
 			break;
 		// user won
 		case game[1][1] == 'Schere' && game[3][1] == 'Papier':
 			// increment userPoints
 			game[5][1] += 1;
-			result = 1;
+			infoText = text[0][0] + text[2];
 			break;
 		case game[1][1] == 'Schere' && game[3][1] == 'Echse':
 			// increment userPoints
 			game[5][1] += 1;
-			result = 1;
+			infoText = text[0][0] + text[4];
 			break;
 		case game[1][1] == 'Stein' && game[3][1] == 'Schere':
 			// increment userPoints
 			game[5][1] += 1;
-			result = 1;
+			infoText = text[0][0] + text[11];
 			break;
 		case game[1][1] == 'Stein' && game[3][1] == 'Echse':
 			// increment userPoints
 			game[5][1] += 1;
-			result = 1;
+			infoText = text[0][0] + text[4];
 			break;
 		case game[1][1] == 'Papier' && game[3][1] == 'Stein':
 			// increment userPoints
 			game[5][1] += 1;
-			result = 1;
+			infoText = text[0][0] + text[3];
 			break;
 		case game[1][1] == 'Papier' && game[3][1] == 'Spock':
 			// increment userPoints
 			game[5][1] += 1;
-			result = 1;
+			infoText = text[0][0] + text[9];
 			break;
 		case game[1][1] == 'Echse' && game[3][1] == 'Papier':
 			// increment userPoints
 			game[5][1] += 1;
-			result = 1;
+			infoText = text[0][0] + text[8];
 			break;
 		case game[1][1] == 'Echse' && game[3][1] == 'Spock':
 			// increment userPoints
 			game[5][1] += 1;
-			result = 1;
+			infoText = text[0][0] + text[5];
 			break;
 		case game[1][1] == 'Spock' && game[3][1] == 'Schere':
 			// increment userPoints
 			game[5][1] += 1;
-			result = 1;
+			infoText = text[0][0] + text[6];
 			break;
 		case game[1][1] == 'Spock' && game[3][1] == 'Stein':
 			// increment userPoints
 			game[5][1] += 1;
-			result = 1;
+			infoText = text[0][0] + text[10];
 			break;
+
 		// computer won
 		case game[3][1] == 'Schere' && game[1][1] == 'Papier':
 			// increment compPoints
 			game[6][1] += 1;
-			result = -1;
+			infoText = text[0][1] + text[2];
 			break;
 		case game[3][1] == 'Schere' && game[1][1] == 'Echse':
 			// increment compPoints
 			game[6][1] += 1;
-			result = -1;
+			infoText = text[0][1] + text[7];
 			break;
 		case game[3][1] == 'Stein' && game[1][1] == 'Schere':
 			// increment compPoints
 			game[6][1] += 1;
-			result = -1;
+			infoText = text[0][1] + text[11];
 			break;
 		case game[3][1] == 'Stein' && game[1][1] == 'Echse':
 			// increment compPoints
 			game[6][1] += 1;
-			result = -1;
+			infoText = text[0][1] + text[4];
 			break;
 		case game[3][1] == 'Papier' && game[1][1] == 'Stein':
 			// increment compPoints
 			game[6][1] += 1;
-			result = -1;
+			infoText = text[0][1] + text[3];
 			break;
 		case game[3][1] == 'Papier' && game[1][1] == 'Spock':
 			// increment compPoints
 			game[6][1] += 1;
-			result = -1;
+			infoText = text[0][1] + text[9];
 			break;
 		case game[3][1] == 'Echse' && game[1][1] == 'Papier':
 			// increment compPoints
 			game[6][1] += 1;
-			result = -1;
+			infoText = text[0][1] + text[8];
 			break;
 		case game[3][1] == 'Echse' && game[1][1] == 'Spock':
 			// increment compPoints
 			game[6][1] += 1;
-			result = -1;
+			infoText = text[0][1] + text[5];
 			break;
 		case game[3][1] == 'Spock' && game[1][1] == 'Schere':
 			// increment compPoints
 			game[6][1] += 1;
-			result = -1;
+			infoText = text[0][1] + text[6];
 			break;
 		case game[3][1] == 'Spock' && game[1][1] == 'Stein':
 			// increment compPoints
 			game[6][1] += 1;
-			result = -1;
+			infoText = text[0][1] + text[10];
 			break;
 
 		default:
 			console.log('broken switch compare');
 	}
 };
+
 // GAME
 let startGame = () => {
 	// check if count <= numOfRounds
@@ -215,19 +217,15 @@ let startGame = () => {
 		}
 		// compare userTool to compTool
 		compare();
-		console.log(game);
 		// output count / numOfRounds
 		printCounter.innerHTML = ' ' + game[4][1] + ' / ' + game[0][1] + ' ';
 		// output userPoints : compPoints
 		printPoints.innerHTML = ' ' + game[5][1] + ' : ' + game[6][1] + ' ';
 		// output info if won
-		// winInfo.innerHTML = first + last;
+		winInfo.innerHTML = infoText;
 	} else {
-		console.log('Fehler');
 		reStart();
 	}
-
-	return game;
 };
 
 // *********************************************************
